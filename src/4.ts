@@ -14,12 +14,12 @@ class Person {
 }
 
 abstract class House {
-  public door: "true" | "false";
+  public door: boolean;
   public key: Key;
   public tenants: Person[] = [];
 
   comeIn(person: Person) {
-    if (this.door === "true") {
+    if (this.door) {
       this.tenants.push(person);
     }
   }
@@ -32,7 +32,7 @@ class MyHouse extends House {
   }
   openDoor(key: Key): void {
     if (key.getSignature() === this.key.getSignature()) {
-      this.door === "true";
+      this.door = true;
     }
   }
 }
